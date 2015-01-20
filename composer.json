@@ -17,7 +17,12 @@
         "symfony/monolog-bundle": "~2.4",
         "sensio/distribution-bundle": "~3.0.12",
         "sensio/framework-extra-bundle": "~3.0",
-        "incenteev/composer-parameter-handler": "~2.0"
+        "incenteev/composer-parameter-handler": "~2.0",
+        "doctrine/mongodb-odm": "1.0.*@dev",
+        "doctrine/mongodb-odm-bundle": "3.0.*@dev",
+        "hautelook/alice-bundle": "0.2.*",
+        "jms/serializer-bundle": "0.13.*",
+        "friendsofsymfony/rest-bundle": "~1.4"
     },
     "require-dev": {
         "sensio/generator-bundle": "~2.3"
