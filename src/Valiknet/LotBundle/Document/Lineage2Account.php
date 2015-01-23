@@ -1,36 +1,90 @@
 <?php
-namespace Valiknet\AuctionBundle\Document;
+namespace Valiknet\LotBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
- * Class AbstractLot
+ * Class Lineage2Account
  * @package Valiknet\AuctionBundle\Document
  *
  * @ODM\Document
- * @ODM\InheritanceType("COLLECTION_PER_CLASS")
  */
-class AbstractLot
+class Lineage2Account extends AbstractLot
 {
     /**
-     * @ODM\Id
+     * @ODM\String
+     */
+    protected $pathToServer;
+
+    /**
+     * @ODM\String
+     */
+    protected $realm;
+
+    /**
+     * @var $id
      */
     protected $id;
 
     /**
-     * @ODM\Float
+     * @var float $start_price
      */
     protected $start_price;
 
     /**
-     * @ODM\Float
+     * @var float $target_price
      */
     protected $target_price;
 
     /**
-     * @ODM\Date
+     * @var date $createdAt
      */
     protected $createdAt;
+
+
+    /**
+     * Set pathToServer
+     *
+     * @param string $pathToServer
+     * @return self
+     */
+    public function setPathToServer($pathToServer)
+    {
+        $this->pathToServer = $pathToServer;
+        return $this;
+    }
+
+    /**
+     * Get pathToServer
+     *
+     * @return string $pathToServer
+     */
+    public function getPathToServer()
+    {
+        return $this->pathToServer;
+    }
+
+    /**
+     * Set realm
+     *
+     * @param string $realm
+     * @return self
+     */
+    public function setRealm($realm)
+    {
+        $this->realm = $realm;
+        return $this;
+    }
+
+    /**
+     * Get realm
+     *
+     * @return string $realm
+     */
+    public function getRealm()
+    {
+        return $this->realm;
+    }
 
     /**
      * Get id
@@ -45,13 +99,12 @@ class AbstractLot
     /**
      * Set startPrice
      *
-     * @param  float $startPrice
+     * @param float $startPrice
      * @return self
      */
     public function setStartPrice($startPrice)
     {
         $this->start_price = $startPrice;
-
         return $this;
     }
 
@@ -68,13 +121,12 @@ class AbstractLot
     /**
      * Set targetPrice
      *
-     * @param  float $targetPrice
+     * @param float $targetPrice
      * @return self
      */
     public function setTargetPrice($targetPrice)
     {
         $this->target_price = $targetPrice;
-
         return $this;
     }
 
@@ -91,13 +143,12 @@ class AbstractLot
     /**
      * Set createdAt
      *
-     * @param  date $createdAt
+     * @param date $createdAt
      * @return self
      */
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 

@@ -1,15 +1,15 @@
 <?php
-namespace Valiknet\AuctionBundle\Document;
+namespace Valiknet\LotBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
 
 /**
- * Class Lineage2Account
+ * Class WowAccount
  * @package Valiknet\AuctionBundle\Document
  *
  * @ODM\Document
  */
-class Lineage2Account extends AbstractLot
+class WowAccount extends AbstractLot
 {
     /**
      * @ODM\String
@@ -20,6 +20,7 @@ class Lineage2Account extends AbstractLot
      * @ODM\String
      */
     protected $realm;
+
     /**
      * @var $id
      */
@@ -40,16 +41,16 @@ class Lineage2Account extends AbstractLot
      */
     protected $createdAt;
 
+
     /**
      * Set pathToServer
      *
-     * @param  string $pathToServer
+     * @param string $pathToServer
      * @return self
      */
     public function setPathToServer($pathToServer)
     {
         $this->pathToServer = $pathToServer;
-
         return $this;
     }
 
@@ -66,13 +67,12 @@ class Lineage2Account extends AbstractLot
     /**
      * Set realm
      *
-     * @param  string $realm
+     * @param string $realm
      * @return self
      */
     public function setRealm($realm)
     {
         $this->realm = $realm;
-
         return $this;
     }
 
@@ -99,13 +99,12 @@ class Lineage2Account extends AbstractLot
     /**
      * Set startPrice
      *
-     * @param  float $startPrice
+     * @param float $startPrice
      * @return self
      */
     public function setStartPrice($startPrice)
     {
         $this->start_price = $startPrice;
-
         return $this;
     }
 
@@ -122,13 +121,12 @@ class Lineage2Account extends AbstractLot
     /**
      * Set targetPrice
      *
-     * @param  float $targetPrice
+     * @param float $targetPrice
      * @return self
      */
     public function setTargetPrice($targetPrice)
     {
         $this->target_price = $targetPrice;
-
         return $this;
     }
 
@@ -145,13 +143,12 @@ class Lineage2Account extends AbstractLot
     /**
      * Set createdAt
      *
-     * @param  date $createdAt
+     * @param date $createdAt
      * @return self
      */
     public function setCreatedAt($createdAt)
     {
         $this->createdAt = $createdAt;
-
         return $this;
     }
 

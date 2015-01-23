@@ -1,5 +1,5 @@
 <?php
-namespace Valiknet\AuctionBundle\DataFixtures\MongoDB;
+namespace Valiknet\LotBundle\DataFixtures\MongoDB;
 
 use Hautelook\AliceBundle\Alice\DataFixtureLoader;
 

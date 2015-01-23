@@ -1,11 +1,11 @@
-Valiknet\AuctionBundle\Document\WowAccount:
+Valiknet\LotBundle\Document\WowAccount:
   wowaccout{1..30}:
     pathToServer: <url()>
     realm: <word()>
     start_price: <numberBetween(50, 250)>
     target_price: <numberBetween(250, 1000)>
 
-Valiknet\AuctionBundle\Document\Lineage2Account:
+Valiknet\LotBundle\Document\Lineage2Account:
   lineagegaccout{1..30}:
     pathToServer: <url()>
     realm: <word()>
