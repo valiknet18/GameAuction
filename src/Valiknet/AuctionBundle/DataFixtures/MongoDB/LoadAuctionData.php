@@ -11,4 +11,4 @@ class LoadAuctionData extends DataFixtureLoader
             __DIR__."/fixtures.yml"
         ];
     }
-} 
+}
