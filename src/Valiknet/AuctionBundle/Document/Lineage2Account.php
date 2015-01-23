@@ -20,6 +20,10 @@ class Lineage2Account extends AbstractLot
      * @ODM\String
      */
     protected $realm;
+    /**
+     * @var $id
+     */
+    protected $id;
 
     /**
      * @var float $start_price
@@ -37,25 +41,15 @@ class Lineage2Account extends AbstractLot
     protected $createdAt;
 
     /**
-     * @var Valiknet\AuctionBundle\Document\Lot
-     */
-    protected $lot;
-
-    /**
-     * @ODM\Id
-     */
-    protected $id;
-
-
-    /**
      * Set pathToServer
      *
-     * @param string $pathToServer
+     * @param  string $pathToServer
      * @return self
      */
     public function setPathToServer($pathToServer)
     {
         $this->pathToServer = $pathToServer;
+
         return $this;
     }
 
@@ -72,12 +66,13 @@ class Lineage2Account extends AbstractLot
     /**
      * Set realm
      *
-     * @param string $realm
+     * @param  string $realm
      * @return self
      */
     public function setRealm($realm)
     {
         $this->realm = $realm;
+
         return $this;
     }
 
@@ -99,5 +94,74 @@ class Lineage2Account extends AbstractLot
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set startPrice
+     *
+     * @param  float $startPrice
+     * @return self
+     */
+    public function setStartPrice($startPrice)
+    {
+        $this->start_price = $startPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get startPrice
+     *
+     * @return float $startPrice
+     */
+    public function getStartPrice()
+    {
+        return $this->start_price;
+    }
+
+    /**
+     * Set targetPrice
+     *
+     * @param  float $targetPrice
+     * @return self
+     */
+    public function setTargetPrice($targetPrice)
+    {
+        $this->target_price = $targetPrice;
+
+        return $this;
+    }
+
+    /**
+     * Get targetPrice
+     *
+     * @return float $targetPrice
+     */
+    public function getTargetPrice()
+    {
+        return $this->target_price;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param  date $createdAt
+     * @return self
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return date $createdAt
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }
