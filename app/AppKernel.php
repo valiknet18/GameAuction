@@ -19,7 +19,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\MongoDBBundle\DoctrineMongoDBBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
-            new Valiknet\AuctionBundle\ValiknetAuctionBundle(),
+            new Valiknet\LotBundle\ValiknetLotBundle(),
             new FOS\UserBundle\FOSUserBundle(),
 
         );
