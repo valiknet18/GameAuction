@@ -72,10 +72,6 @@ swiftmailer:
     password:  "%mailer_password%"
     spool:     { type: memory }
 
-hautelook_alice:
-    locale: en_US   # default
-    seed: 1         # default
-
 doctrine_mongodb:
     connections:
         default:
@@ -85,3 +81,8 @@ doctrine_mongodb:
     document_managers:
         default:
             auto_mapping: true
+
+fos_user:
+    db_driver: mongodb
+    firewall_name: main
+    user_class: Valik\UserBundle\Document\User
