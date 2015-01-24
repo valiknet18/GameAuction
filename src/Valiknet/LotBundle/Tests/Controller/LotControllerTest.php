@@ -9,7 +9,7 @@ class LotControllerTest extends WebTestCase
     {
         $client = static::createClient();
 
-        $client->request('GET', '/');
+        $client->request('GET', '/app_dev.php');
 
         $this->assertEquals(200, $client->getResponse()->getStatusCode());
     }
