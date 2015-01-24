@@ -20,8 +20,9 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle(),
             new FOS\RestBundle\FOSRestBundle(),
             new Valiknet\LotBundle\ValiknetLotBundle(),
+            new Valiknet\UserBundle\ValiknetUserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-
+            new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

@@ -85,4 +85,6 @@ doctrine_mongodb:
 fos_user:
     db_driver: mongodb
     firewall_name: main
-    user_class: Valik\UserBundle\Document\User
+    user_class: Valiknet\UserBundle\Document\User
+
+nelmio_api_doc: ~
