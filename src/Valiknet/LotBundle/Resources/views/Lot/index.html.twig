@@ -1,5 +1,18 @@
 {% extends "::base.html.twig" %}
 
 {% block body %}
-    Hello world
+    <div>
+        {% for lot in data %}
+            {{ dump(lot) }}
+            <div class="col-lg-6">
+                <div>
+                    Гра {{ lot|valiknet_lot_typelot }}
+                </div>
+
+                <div>
+                    Стартова ціна: {{ lot.startPrice }}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}
