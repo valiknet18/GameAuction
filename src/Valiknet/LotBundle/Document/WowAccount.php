@@ -14,6 +14,11 @@ class WowAccount extends AbstractLot
     /**
      * @ODM\String
      */
+    protected $name_server;
+
+    /**
+     * @ODM\String
+     */
     protected $pathToServer;
 
     /**
@@ -40,7 +45,6 @@ class WowAccount extends AbstractLot
      * @var date $createdAt
      */
     protected $createdAt;
-
 
     /**
      * Set pathToServer

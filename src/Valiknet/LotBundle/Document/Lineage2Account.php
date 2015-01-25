@@ -14,6 +14,11 @@ class Lineage2Account extends AbstractLot
     /**
      * @ODM\String
      */
+    protected $name_server;
+
+    /**
+     * @ODM\String
+     */
     protected $pathToServer;
 
     /**

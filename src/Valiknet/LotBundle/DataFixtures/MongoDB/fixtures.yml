@@ -4,6 +4,7 @@ Valiknet\LotBundle\Document\WowAccount:
     realm: <word()>
     start_price: <numberBetween(50, 250)>
     target_price: <numberBetween(250, 1000)>
+    name_server: <domainWord()>
 
 Valiknet\LotBundle\Document\Lineage2Account:
   lineagegaccout{1..30}:
@@ -11,3 +12,4 @@ Valiknet\LotBundle\Document\Lineage2Account:
     realm: <word()>
     start_price: <numberBetween(50, 250)>
     target_price: <numberBetween(250, 1000)>
+    name_server: <domainWord()>

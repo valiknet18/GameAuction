@@ -33,7 +33,6 @@ class AbstractLot
      */
     protected $createdAt;
 
-
     /**
      * Get id
      *
