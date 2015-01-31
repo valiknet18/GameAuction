@@ -13,8 +13,11 @@ class LotController extends Controller
     {
         $data = $this->get('doctrine.odm.mongodb.document_manager')->getRepository('ValiknetLotBundle:AbstractLot')->findAll();
 
+        $timeNow = new \DateTime();
+
         return [
-            "data" => $data
+            "data" => $data,
+            'timeNow' => $timeNow
         ];
     }
 } 

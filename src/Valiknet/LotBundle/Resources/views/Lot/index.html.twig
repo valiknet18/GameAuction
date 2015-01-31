@@ -6,6 +6,9 @@
             {{ dump(lot) }}
             <div class="col-lg-6">
                 <div>
+
+                    Різниця: {{ timeNow.diff(lot.createdAt) }}
+
                     Гра {{ lot|valiknet_lot_typelot }}
                 </div>
 
