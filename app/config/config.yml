@@ -2,6 +2,7 @@ imports:
     - { resource: parameters.yml }
     - { resource: security.yml }
     - { resource: services.yml }
+    - { resource: liip_image.yml }
 
 framework:
     #esi:             ~
@@ -90,3 +91,11 @@ fos_user:
     user_class: Valiknet\UserBundle\Document\User
 
 nelmio_api_doc: ~
+
+stof_doctrine_extensions:
+    mongodb:
+        default:
+            timestampable: true
+            sluggable: true
+            loggable: true
+            tree:    true
