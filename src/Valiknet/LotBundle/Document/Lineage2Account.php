@@ -28,24 +28,63 @@ class Lineage2Account extends AbstractLot
 
     /**
      * @var $id
+     *
+     * @ODM\Id
      */
     protected $id;
 
     /**
      * @var float $start_price
+     *
+     * @ODM\Field(type="float")
      */
     protected $start_price;
 
     /**
      * @var float $target_price
+     *
+     * @ODM\Field(type="float")
      */
     protected $target_price;
 
     /**
      * @var date $createdAt
+     *
+     * @ODM\Field(type="date")
      */
     protected $createdAt;
+    /**
+     * @var boolean $activeLot
+     */
+    protected $activeLot;
 
+    /**
+     * @var Valiknet\UserBundle\Document\User
+     */
+    protected $author;
+
+
+    /**
+     * Set nameServer
+     *
+     * @param string $nameServer
+     * @return self
+     */
+    public function setNameServer($nameServer)
+    {
+        $this->name_server = $nameServer;
+        return $this;
+    }
+
+    /**
+     * Get nameServer
+     *
+     * @return string $nameServer
+     */
+    public function getNameServer()
+    {
+        return $this->name_server;
+    }
 
     /**
      * Set pathToServer
@@ -165,5 +204,49 @@ class Lineage2Account extends AbstractLot
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set author
+     *
+     * @param Valiknet\UserBundle\Document\User $author
+     * @return self
+     */
+    public function setAuthor(\Valiknet\UserBundle\Document\User $author)
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return Valiknet\UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set activeLot
+     *
+     * @param boolean $activeLot
+     * @return self
+     */
+    public function setActiveLot($activeLot)
+    {
+        $this->activeLot = $activeLot;
+        return $this;
+    }
+
+    /**
+     * Get activeLot
+     *
+     * @return boolean $activeLot
+     */
+    public function getActiveLot()
+    {
+        return $this->activeLot;
     }
 }

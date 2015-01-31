@@ -10,6 +10,7 @@ use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
  * @ODM\Document
  * @ODM\InheritanceType("SINGLE_COLLECTION")
  * @ODM\DiscriminatorField("type")
+ * @ODM\HasLifecycleCallbacks()
  */
 class AbstractLot
 {
@@ -19,19 +20,37 @@ class AbstractLot
     protected $id;
 
     /**
-     * @ODM\Float
+     * @ODM\Field(type="float")
      */
     protected $start_price;
 
     /**
-     * @ODM\Float
+     * @ODM\Field(type="float")
      */
     protected $target_price;
 
     /**
-     * @ODM\Date
+     * @ODM\Field(type="date")
      */
     protected $createdAt;
+
+    /**
+     * @ODM\ReferenceOne(targetDocument="Valiknet\UserBundle\Document\User")
+     */
+    protected $author;
+
+    /**
+     * @ODM\Field(type="boolean")
+     */
+    protected $activeLot;
+
+    /**
+     * @ODM\postLoad()
+     */
+    public function changeLotStatus()
+    {
+        $dateTime = new \DateTime();
+    }
 
     /**
      * Get id
@@ -107,5 +126,49 @@ class AbstractLot
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set author
+     *
+     * @param Valiknet\UserBundle\Document\User $author
+     * @return self
+     */
+    public function setAuthor(\Valiknet\UserBundle\Document\User $author)
+    {
+        $this->author = $author;
+        return $this;
+    }
+
+    /**
+     * Get author
+     *
+     * @return Valiknet\UserBundle\Document\User $author
+     */
+    public function getAuthor()
+    {
+        return $this->author;
+    }
+
+    /**
+     * Set activeLot
+     *
+     * @param boolean $activeLot
+     * @return self
+     */
+    public function setActiveLot($activeLot)
+    {
+        $this->activeLot = $activeLot;
+        return $this;
+    }
+
+    /**
+     * Get activeLot
+     *
+     * @return boolean $activeLot
+     */
+    public function getActiveLot()
+    {
+        return $this->activeLot;
     }
 }
