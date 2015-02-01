@@ -27,5 +27,8 @@
         <service id="valiknet.lot.twig.valiknet_lot" class="Valiknet\LotBundle\Twig\ValiknetLotExtension">
             <tag name="twig.extension" />
         </service>
+
+        <service id="valiknet.lot.service.lot_extension" class="Valiknet\LotBundle\Service\LoxExtension">
+        </service>
     </services>
 </container>
