@@ -2,6 +2,7 @@
 namespace Valiknet\LotBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class AbstractLot
@@ -30,11 +31,6 @@ class AbstractLot
     protected $target_price;
 
     /**
-     * @ODM\Field(type="date")
-     */
-    protected $createdAt;
-
-    /**
      * @ODM\ReferenceOne(targetDocument="Valiknet\UserBundle\Document\User")
      */
     protected $author;
@@ -42,14 +38,27 @@ class AbstractLot
     /**
      * @ODM\Field(type="boolean")
      */
-    protected $activeLot;
+    protected $finishLot;
+
+    /**
+     * @Gedmo\Timestampable(on="create")
+     * @ODM\Field(type="date")
+     */
+    protected $createdAt;
 
     /**
      * @ODM\postLoad()
      */
     public function changeLotStatus()
     {
-        $dateTime = new \DateTime();
+        $dateTimeNow = new \DateTime();
+        $finishTime = clone($this->createdAt);
+        $finishTime = $finishTime->modify("+2 days");
+        $difference = $finishTime->diff($dateTimeNow);
+
+        if (($difference->d * 24 + $difference->h) <= 0) {
+            $this->finishLot = 1;
+        }
     }
 
     /**
@@ -107,28 +116,6 @@ class AbstractLot
     }
 
     /**
-     * Set createdAt
-     *
-     * @param date $createdAt
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return date $createdAt
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
      * Set author
      *
      * @param Valiknet\UserBundle\Document\User $author
@@ -151,24 +138,46 @@ class AbstractLot
     }
 
     /**
-     * Set activeLot
+     * Set finishLot
      *
-     * @param boolean $activeLot
+     * @param boolean $finishLot
      * @return self
      */
-    public function setActiveLot($activeLot)
+    public function setFinishLot($finishLot)
     {
-        $this->activeLot = $activeLot;
+        $this->finishLot = $finishLot;
         return $this;
     }
 
     /**
-     * Get activeLot
+     * Get finishLot
      *
-     * @return boolean $activeLot
+     * @return boolean $finishLot
      */
-    public function getActiveLot()
+    public function getFinishLot()
     {
-        return $this->activeLot;
+        return $this->finishLot;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param date $createdAt
+     * @return self
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return date $createdAt
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }

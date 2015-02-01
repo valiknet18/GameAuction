@@ -2,6 +2,7 @@
 namespace Valiknet\LotBundle\Document;
 
 use Doctrine\ODM\MongoDB\Mapping\Annotations as ODM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 /**
  * Class WowAccount
@@ -25,38 +26,30 @@ class WowAccount extends AbstractLot
      * @ODM\String
      */
     protected $realm;
-
     /**
      * @var $id
-     *
-     * @ODM\Id
      */
     protected $id;
 
     /**
      * @var float $start_price
-     *
-     * @ODM\Field(type="float")
      */
     protected $start_price;
 
     /**
      * @var float $target_price
-     *
-     * @ODM\Field(type="float")
      */
     protected $target_price;
 
     /**
+     * @var boolean $finishLot
+     */
+    protected $finishLot;
+
+    /**
      * @var date $createdAt
-     *
-     * @ODM\Field(type="date")
      */
     protected $createdAt;
-    /**
-     * @var boolean $activeLot
-     */
-    protected $activeLot;
 
     /**
      * @var Valiknet\UserBundle\Document\User
@@ -185,28 +178,6 @@ class WowAccount extends AbstractLot
     }
 
     /**
-     * Set createdAt
-     *
-     * @param date $createdAt
-     * @return self
-     */
-    public function setCreatedAt($createdAt)
-    {
-        $this->createdAt = $createdAt;
-        return $this;
-    }
-
-    /**
-     * Get createdAt
-     *
-     * @return date $createdAt
-     */
-    public function getCreatedAt()
-    {
-        return $this->createdAt;
-    }
-
-    /**
      * Set author
      *
      * @param Valiknet\UserBundle\Document\User $author
@@ -229,24 +200,46 @@ class WowAccount extends AbstractLot
     }
 
     /**
-     * Set activeLot
+     * Set finishLot
      *
-     * @param boolean $activeLot
+     * @param boolean $finishLot
      * @return self
      */
-    public function setActiveLot($activeLot)
+    public function setFinishLot($finishLot)
     {
-        $this->activeLot = $activeLot;
+        $this->finishLot = $finishLot;
         return $this;
     }
 
     /**
-     * Get activeLot
+     * Get finishLot
      *
-     * @return boolean $activeLot
+     * @return boolean $finishLot
      */
-    public function getActiveLot()
+    public function getFinishLot()
     {
-        return $this->activeLot;
+        return $this->finishLot;
+    }
+
+    /**
+     * Set createdAt
+     *
+     * @param date $createdAt
+     * @return self
+     */
+    public function setCreatedAt($createdAt)
+    {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    /**
+     * Get createdAt
+     *
+     * @return date $createdAt
+     */
+    public function getCreatedAt()
+    {
+        return $this->createdAt;
     }
 }
