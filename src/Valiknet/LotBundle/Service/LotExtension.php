@@ -2,9 +2,9 @@
 namespace Valiknet\LotBundle\Service;
 
 use Doctrine\ODM\MongoDB\DocumentManager;
-use Valikent\LotBundle\Document\FinishLot;
+use Valiknet\LotBundle\Document\FinishLot;
 
-class LoxExtension
+class LotExtension
 {
     public function updateLots($lots, DocumentManager $dm)
     {
@@ -15,16 +15,16 @@ class LoxExtension
             $finishTime = $finishTime->modify("+2 days");
             $difference = $finishTime->diff($dateTimeNow);
 
-            if (($difference->d * 24 + $difference->h) <= 0) {
-                $lot->setCreatedAt(1);
+            if (($difference->d * 24 + $difference->h) <= 48) {
+                $lot->setFinishLot(1);
 
                 $finishLot = new FinishLot();
                 $finishLot->setLot($lot);
 
                 $dm->persist($finishLot);
-
-                unset($lot);
             }
         }
+
+        return $lots;
     }
 }
