@@ -11,13 +11,15 @@ class LotController extends Controller
      */
     public function indexAction()
     {
-        $data = $this->get('doctrine.odm.mongodb.document_manager')->getRepository('ValiknetLotBundle:AbstractLot')->findAll();
+        $dm = $this->get('doctrine.odm.mongodb.document_manager');
 
-        $timeNow = new \DateTime();
+        $data = $dm->getRepository('ValiknetLotBundle:AbstractLot')->findBy(["finishLot" => false]);
+        $data = $this->get('valiknet.lot.service.lot_extension')->updateLots($data, $dm);
+
+        $dm->flush();
 
         return [
-            "data" => $data,
-            'timeNow' => $timeNow
+            "data" => $data
         ];
     }
 } 
