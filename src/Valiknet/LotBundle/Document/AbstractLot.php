@@ -31,6 +31,11 @@ class AbstractLot
     protected $target_price;
 
     /**
+     * @ODM\Field(type="string")
+     */
+    protected $description;
+
+    /**
      * @ODM\ReferenceOne(targetDocument="Valiknet\UserBundle\Document\User")
      */
     protected $author;
@@ -179,5 +184,27 @@ class AbstractLot
     public function getCreatedAt()
     {
         return $this->createdAt;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string $description
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 }

@@ -53,10 +53,36 @@ class Lineage2Account extends AbstractLot
     protected $createdAt;
 
     /**
+     * @var string $description
+     */
+    protected $description;
+
+    /**
      * @var Valiknet\UserBundle\Document\User
      */
     protected $author;
 
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string $description
+     */
+    public function getDescription()
+    {
+        return $this->description;
+    }
 
     /**
      * Set nameServer
