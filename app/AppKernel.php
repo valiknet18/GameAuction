@@ -21,6 +21,7 @@ class AppKernel extends Kernel
             new FOS\RestBundle\FOSRestBundle(),
             new Valiknet\LotBundle\ValiknetLotBundle(),
             new Valiknet\UserBundle\ValiknetUserBundle(),
+            new Valiknet\AuctionApiBundle\ValiknetAuctionApiBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Nelmio\ApiDocBundle\NelmioApiDocBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
