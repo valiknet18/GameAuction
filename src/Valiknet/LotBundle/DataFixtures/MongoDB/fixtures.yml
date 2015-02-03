@@ -5,8 +5,8 @@ Valiknet\LotBundle\Document\WowAccount:
     start_price: <numberBetween(50, 250)>
     target_price: <numberBetween(250, 1000)>
     name_server: <domainWord()>
-    finishLot: 0
     description: <realText()>
+    finishLot: 0
 
 Valiknet\LotBundle\Document\Lineage2Account:
   lineagegaccout{1..30}:
@@ -15,5 +15,5 @@ Valiknet\LotBundle\Document\Lineage2Account:
     start_price: <numberBetween(50, 250)>
     target_price: <numberBetween(250, 1000)>
     name_server: <domainWord()>
-    finishLot: 0
     description: <realText()>
+    finishLot: 0

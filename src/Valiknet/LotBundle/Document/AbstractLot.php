@@ -52,21 +52,6 @@ class AbstractLot
     protected $createdAt;
 
     /**
-     * @ODM\postLoad()
-     */
-    public function changeLotStatus()
-    {
-        $dateTimeNow = new \DateTime();
-        $finishTime = clone($this->createdAt);
-        $finishTime = $finishTime->modify("+2 days");
-        $difference = $finishTime->diff($dateTimeNow);
-
-        if (($difference->d * 24 + $difference->h) <= 0) {
-            $this->finishLot = 1;
-        }
-    }
-
-    /**
      * Get id
      *
      * @return id $id
@@ -118,6 +103,28 @@ class AbstractLot
     public function getTargetPrice()
     {
         return $this->target_price;
+    }
+
+    /**
+     * Set description
+     *
+     * @param string $description
+     * @return self
+     */
+    public function setDescription($description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Get description
+     *
+     * @return string $description
+     */
+    public function getDescription()
+    {
+        return $this->description;
     }
 
     /**
@@ -184,27 +191,5 @@ class AbstractLot
     public function getCreatedAt()
     {
         return $this->createdAt;
-    }
-
-    /**
-     * Set description
-     *
-     * @param string $description
-     * @return self
-     */
-    public function setDescription($description)
-    {
-        $this->description = $description;
-        return $this;
-    }
-
-    /**
-     * Get description
-     *
-     * @return string $description
-     */
-    public function getDescription()
-    {
-        return $this->description;
     }
 }
