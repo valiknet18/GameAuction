@@ -15,7 +15,7 @@ class LotExtension
             $finishTime = $finishTime->modify("+2 days");
             $difference = $finishTime->diff($dateTimeNow);
 
-            if (($difference->d * 24 + $difference->h) <= 48) {
+            if (($difference->d * 24 + $difference->h) <= 0) {
                 $lot->setFinishLot(1);
 
                 $finishLot = new FinishLot();
